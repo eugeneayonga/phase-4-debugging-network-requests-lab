@@ -62,12 +62,12 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: I first checked the create route presence in routes.rb under config. I then went to the toy controller file and checked the create controller action. It was Toys instead of Toy. Singularized it then created a new to from the frontend and I got a 201 Created status code. POST
 
 - Update the number of likes for a toy
 
-  - How I debugged:
+  - How I debugged: I first checked the fetch UPDATE request on the frontend, it was okay. I then checked the update controller action and it was missing a render json: toy. Corrected it and the likes started counting and a Status Code: 200 OK displayed.
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged: Pressed the Donate to Goodwill button and received the network 404 error of ActionController::RoutingError (No route matches [DELETE] "/toys/9"). I went to /config/routes.rb then added :destroy to my resources. I then saved and re-fired, it deleted and thus donated to charity with the Status Code: 204 No Content displayed.
